@@ -18,5 +18,6 @@ const BORDER_RADIUS = 2;
 
 export const radiuses = {
   small: BORDER_RADIUS,
+  normal: BORDER_RADIUS * 2,
   medium: BORDER_RADIUS * 5
 };

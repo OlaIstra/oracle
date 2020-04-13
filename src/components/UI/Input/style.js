@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
 export const InputStyle = styled.input`
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid ${color.greyLight};
+  border-bottom: 1px solid ${color.greyDark};
   border-radius: 0;
   outline: none;
   height: 50px;

@@ -16,7 +16,7 @@ export const CardStyle = styled.div`
 export const CardImageStyle = styled.div`
   position: relative;
   display: flex;
-  background: ${color.blue};
+  background: ${color.blueDark};
   flex-direction: column;
   align-items: center;
   padding: ${padding.small}px ${padding.normal}px;

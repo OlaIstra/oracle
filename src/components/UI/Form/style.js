@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../styles/index";
+import { device, color } from "../../../styles/index";
 
 export const FormStyle = styled.form`
   display: flex;
@@ -11,6 +11,8 @@ export const FormStyle = styled.form`
   border-radius: 4px;
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
     0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  background: ${color.greyLight};
+
   @media ${device.mobileL} {
     flex-direction: column;
     height: auto;

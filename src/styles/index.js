@@ -1,7 +1,7 @@
-import { colors } from './colors';
-import { devices, sizes } from './devices';
-import { fontSizes, fontWeights, lineHeights } from './typography';
-import { paddings, heights, radiuses } from './variables';
+import { colors } from "./colors";
+import { devices, sizes } from "./devices";
+import { fontSizes, fontWeights, lineHeights } from "./typography";
+import { paddings, heights, radiuses } from "./variables";
 
 export const color = colors;
 export const device = devices;

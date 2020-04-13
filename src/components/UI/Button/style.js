@@ -23,7 +23,7 @@ export const ButtonStyle = styled.button`
   text-align: center;
   letter-spacing: 0.5px;
   cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
-  background: ${props => (props.disabled ? color.greyLight : color.blue)};
+  background: ${props => (props.disabled ? color.greyDark : color.blue)};
   pointer-events: ${props => (props.disabled ? "none" : "all")};
   @media ${device.mobileL} {
     margin-bottom: 20px;

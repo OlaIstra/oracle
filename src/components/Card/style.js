@@ -20,6 +20,7 @@ export const CardImageStyle = styled.div`
   flex-direction: column;
   align-items: center;
   padding: ${padding.small}px ${padding.normal}px;
+  margin-bottom: 20px;
 `;
 
 export const CardImgStyle = styled.img`
@@ -35,6 +36,7 @@ export const CardImgStyle = styled.img`
 `;
 
 export const CardContentStyle = styled.div`
+  margin-bottom: 20px;
   padding: ${padding.medium};
   border-radius: 0 0 ${radius.small}px ${radius.small}px;
 `;

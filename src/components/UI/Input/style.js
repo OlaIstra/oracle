@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { variable, device } from "../../../styles/index";
+import { color, device } from "../../../styles/index";
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
 export const InputStyle = styled.input`
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid ${variable.colorGreyLight};
+  border-bottom: 1px solid ${color.greyLight};
   border-radius: 0;
   outline: none;
   height: 50px;

@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  variable,
-  radius,
-  padding,
-  fontSize,
-  height
-} from "../../styles/index";
+import { color, radius, padding, fontSize, height } from "../../styles/index";
 
 export const CardStyle = styled.div`
   position: relative;
@@ -13,7 +7,7 @@ export const CardStyle = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: ${variable.colorWhite};
+  background-color: ${color.white};
   border-radius: ${radius.small}px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -22,7 +16,7 @@ export const CardStyle = styled.div`
 export const CardImageStyle = styled.div`
   position: relative;
   display: flex;
-  background: ${variable.colorPrimary};
+  background: ${color.blue};
   flex-direction: column;
   align-items: center;
   padding: ${padding.small}px ${padding.normal}px;
@@ -50,7 +44,7 @@ export const CardNameStyle = styled.div`
   left: 10px;
   max-width: 100%;
   padding: ${padding.small}px;
-  color: ${variable.colorWhite};
+  color: ${color.white};
   font-size: ${fontSize.medium}px;
 `;
 

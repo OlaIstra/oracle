@@ -1,13 +1,13 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../shared/utils";
 
-const initialState = {
+export const initialState = {
   user: null,
   error: null,
   loading: false
 };
 
-const user = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_USER_START:
       return updateObject(state, {
@@ -20,7 +20,7 @@ const user = (state = initialState, action) => {
           login: action.user.login,
           id: action.user.id,
           bio: action.user.bio,
-          img: action.user.avatar_url
+          img: action.user.img
         },
         error: null,
         loading: false
@@ -36,5 +36,3 @@ const user = (state = initialState, action) => {
       return state;
   }
 };
-
-export default user;

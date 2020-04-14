@@ -27,10 +27,17 @@ export const fetchUserSuccess = user => {
 export const initUser = enteredText => {
   return dispatch => {
     dispatch(fetchUserStart());
-    axios
+    return axios
       .get(`/${enteredText}`)
       .then(response => {
-        dispatch(fetchUserSuccess(response.data));
+        dispatch(
+          fetchUserSuccess({
+            login: response.data.login,
+            id: response.data.id,
+            bio: response.data.bio,
+            img: response.data.avatar_url
+          })
+        );
       })
       .catch(error => {
         dispatch(fetchUserFailed(error.message));

@@ -1,13 +1,13 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../shared/utils";
 
-const initialState = {
+export const initialState = {
   repos: null,
   error: null,
   loading: false
 };
 
-const repos = (state = initialState, action) => {
+export const reposReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_REPOS_START:
       return updateObject(state, {
@@ -31,5 +31,3 @@ const repos = (state = initialState, action) => {
       return state;
   }
 };
-
-export default repos;

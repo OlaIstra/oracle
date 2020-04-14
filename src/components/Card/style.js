@@ -33,6 +33,7 @@ export const CardImgStyle = styled.img`
   bottom: 0;
   width: 120px;
   height: 120px;
+  border: 2px solid ${color.blue};
 `;
 
 export const CardContentStyle = styled.div`

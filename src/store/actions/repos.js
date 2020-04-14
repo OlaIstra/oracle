@@ -27,7 +27,7 @@ export const fetchReposSuccess = repos => {
 export const initRepos = enteredText => {
   return dispatch => {
     dispatch(fetchReposStart());
-    axios
+    return axios
       .get(`/${enteredText}/repos`)
       .then(response => {
         dispatch(fetchReposSuccess(response.data));

@@ -48,7 +48,7 @@ describe("repos actions", () => {
 
     it("creates FETCH_REPOS_SUCCESS when fetching is done", () => {
       fetchMock.getOnce(`${axios}/repos`, {
-        headers: { "content-type": "application/json" }, // описываем заголовки ответа
+        headers: { "content-type": "application/json" },
         body: { data: "repos", status: "ok" }
       });
 
@@ -60,7 +60,7 @@ describe("repos actions", () => {
         {
           type: actionTypes.FETCH_REPOS_SUCCESS,
           repos: [],
-          loading: false // в ожидании важно указать теже данные, что были указаны выше в моке запроса
+          loading: false
         }
       ];
       const store = mockStore({});

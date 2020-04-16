@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonStyle renders correctly 1`] = `
+.c0 {
+  height: 40px;
+  line-height: 35px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  background: #262244;
+  pointer-events: all;
+}
+
+@media (max-width:425px) {
+  .c0 {
+    margin-bottom: 20px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;

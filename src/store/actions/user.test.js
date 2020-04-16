@@ -48,7 +48,7 @@ describe("user actions", () => {
 
     it("creates FETCH_USER_SUCCESS when fetching is done", () => {
       fetchMock.getOnce(`${axios}/user`, {
-        headers: { "content-type": "application/json" }, // описываем заголовки ответа
+        headers: { "content-type": "application/json" },
         body: { data: "user", status: "ok" }
       });
 
@@ -65,7 +65,7 @@ describe("user actions", () => {
             img: "https://avatars2.githubusercontent.com/u/14959?v=4",
             login: "user"
           },
-          loading: false // в ожидании важно указать теже данные, что были указаны выше в моке запроса
+          loading: false
         }
       ];
       const store = mockStore({});

@@ -1,3 +1,9 @@
+## Description
+
+This app lets the customer find any GitHub user in API. At first, please enter the username in the search field and press 'find user'. You will see user image and description (if current user has it). After you can click 'Find repo...' and you get a list of repos current user. You can find repos by name and sort it by rate.
+You will redirect to repos by clicking on repo name
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -12,6 +12,7 @@ import * as actions from "../../store/actions/index";
 import { sortByName, sortByStars } from "../../shared/utils";
 
 import { Input } from "../../components/UI/Input/Input";
+import { BasicPagination } from "../../components/UI/Pagination/Pagination";
 import { RepoLink } from "../../components/RepoLink/RepoLink";
 import { UserReposStyle, SortByRateStyle } from "./style";
 import { ShadowDivStyle } from "../../components/RepoLink/style";
@@ -51,6 +52,10 @@ export const UserRepos = props => {
   });
 
   const [reposToDisplay, setReposToDisplay] = useState(null);
+  const [page, setPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   useEffect(() => {
     setReposToDisplay(repos);
@@ -60,12 +65,15 @@ export const UserRepos = props => {
     checkBox.current.checked
       ? setReposToDisplay(sortByStars(sortByName(repos, inputVal)))
       : setReposToDisplay(sortByName(repos, inputVal));
+    setPage(1);
   };
 
   const onSortByStars = event => {
     if (checkBox.current.checked) {
-      setReposToDisplay(sortByStars(reposToDisplay));
+      setReposToDisplay(sortByStars(repos));
     }
+
+    setPage(1);
   };
 
   let repoBlock;
@@ -73,7 +81,7 @@ export const UserRepos = props => {
   reposToDisplay
     ? (repoBlock = (
         <div>
-          {reposToDisplay.map(element => {
+          {reposToDisplay.slice(10 * page - 10, 10 * page).map(element => {
             return (
               <RepoLink
                 key={element.id}
@@ -107,6 +115,11 @@ export const UserRepos = props => {
           />
         </SortByRateStyle>
       </ShadowDivStyle>
+      <BasicPagination
+        count={reposToDisplay ? reposToDisplay.length : 10}
+        handleChange={handleChange}
+        page={page}
+      />
       {repoBlock}
     </UserReposStyle>
   );

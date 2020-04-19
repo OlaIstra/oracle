@@ -14,8 +14,6 @@ const useStyles = makeStyles(theme => ({
 export const BasicPagination = props => {
   const classes = useStyles();
 
-  console.log(props.page);
-
   return (
     <div className={classes.root}>
       <Pagination

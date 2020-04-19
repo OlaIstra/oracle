@@ -25,15 +25,41 @@ export const fetchReposSuccess = repos => {
 };
 
 export const initRepos = enteredText => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(fetchReposStart());
-    return axios
-      .get(`/${enteredText}/repos`)
-      .then(response => {
-        dispatch(fetchReposSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(fetchReposFailed(error.message));
+    try {
+      let userRepos = await axios.get(`/${enteredText}/repos`);
+      let res = userRepos.data.map(async elem => {
+        try {
+          let repoInfo = await axios.get(
+            `https://api.github.com/repos/${enteredText}/${elem.name}/community/profile`,
+            {
+              headers: {
+                Accept: "application/vnd.github.black-panther-preview+json"
+              }
+            }
+          );
+          return {
+            id: elem.id,
+            name: elem.name,
+            html_url: elem.html_url,
+            stargazers_count: elem.stargazers_count,
+            health: repoInfo.data.health_percentage
+          };
+        } catch (e) {
+          return {
+            id: elem.id,
+            name: elem.name,
+            html_url: elem.html_url,
+            stargazers_count: elem.stargazers_count,
+            health: "none"
+          };
+        }
       });
+      let result = await Promise.all(res);
+      dispatch(fetchReposSuccess(result));
+    } catch (e) {
+      dispatch(fetchReposFailed(e.message));
+    }
   };
 };

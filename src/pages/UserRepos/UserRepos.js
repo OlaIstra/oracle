@@ -16,6 +16,7 @@ import { BasicPagination } from "../../components/UI/Pagination/Pagination";
 import { RepoLink } from "../../components/RepoLink/RepoLink";
 import { UserReposStyle, SortByRateStyle } from "./style";
 import { ShadowDivStyle } from "../../components/RepoLink/style";
+import { Spinner } from "../../components/UI/Spinner/Spinner";
 
 const ref = createRef();
 
@@ -51,6 +52,10 @@ export const UserRepos = props => {
     return state.repos.error;
   });
 
+  const loading = useSelector(state => {
+    return state.repos.loading;
+  });
+
   const [reposToDisplay, setReposToDisplay] = useState(null);
   const [page, setPage] = useState(1);
   const handleChange = (event, value) => {
@@ -76,24 +81,27 @@ export const UserRepos = props => {
     setPage(1);
   };
 
-  let repoBlock;
+  let repoBlock = <Spinner />;
 
-  reposToDisplay
-    ? (repoBlock = (
-        <div>
-          {reposToDisplay.slice(10 * page - 10, 10 * page).map(element => {
-            return (
-              <RepoLink
-                key={element.id}
-                title={element.name}
-                href={element.html_url}
-                stars={element.stargazers_count}
-              />
-            );
-          })}
-        </div>
-      ))
-    : (repoBlock = <ShadowDivStyle>{error}</ShadowDivStyle>);
+  if (!loading) {
+    reposToDisplay
+      ? (repoBlock = (
+          <div>
+            {reposToDisplay.slice(10 * page - 10, 10 * page).map(element => {
+              return (
+                <RepoLink
+                  key={element.id}
+                  title={element.name}
+                  href={element.html_url}
+                  stars={element.stargazers_count}
+                  health={element.health}
+                />
+              );
+            })}
+          </div>
+        ))
+      : (repoBlock = <ShadowDivStyle>{error}</ShadowDivStyle>);
+  }
 
   return (
     <UserReposStyle>
